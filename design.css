@@ -1,0 +1,19 @@
+th {
+  
+    height: 4em;
+    border: 1px solid #ccc;
+      background-color:aliceblue;
+    color: black;
+    text-align-last:  center;
+    
+}
+td{
+    height: 2em;
+   
+}
+table{
+   width: 100%;
+   
+}
+
+

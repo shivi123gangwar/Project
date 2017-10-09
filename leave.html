@@ -1,0 +1,109 @@
+<div>
+<ul id="nav" align="center">
+    <li><a ng-href="#/applyLeave">Apply Leave</a></li>
+    <li><a ng-href="#/approve">Approve Leave</a></li>
+    <li><a ng-href="#/view">View Leave</a></li>
+    <li><a ng-href="#/balance">Leave Balance</a></li>
+    <li><a ng-href="#/attendance">Attendance</a></li>
+    <li><a ng-href="#/report">Reports</a></li>
+</ul>
+<fieldset>
+<legend>Apply Leave</legend>
+<div ng-repeat="result in tempdata.member">
+<lable for="">Employee Id</lable>
+<input type="text" ng-model="result.employeeId" name="empid" ng-disabled=true>
+<lable for="">DOJ</lable>
+<input type="text" ng-model="result.doj" name="doj" ng-disabled=true>
+<lable for="">Reporting Manager</lable>
+<input type="text" ng-model="result.reportingManager" ng-disabled=true>
+  <h4>Available Leave Balance Details</h4>
+  <hr>
+  </div>
+   <table border="1" align="center" >
+          <tr>
+           <th >LeaveType</th>
+           <th >Opening Balance</th>
+           <th>Leaves Accured</th>
+           <th>Leaves Availed</th>
+           <th colspan="2">Leave Balance
+           <!--<div><div id="span" class="month">Month End</div><div id="span1" class="year">Year End</div></div>-->
+       </th> 
+       </tr>
+     
+       <tr  ng-repeat="members in tempdata.member"> 
+           <td>Casual Leave</td>
+           <td>{{members.casualLeave.openingBalance}}</td>
+           <td>{{members.casualLeave.leavesAccured}}</td>
+           <td>{{members.casualLeave.leavesAvailed}}</td>
+            <td></td>
+       </tr>
+       
+       <tr ng-repeat="members in tempdata.member">
+            <td >Medical Leave</td>
+          <td>{{members.medicalLeave.openingBalance}}</td>
+           <td>{{members.medicalLeave.leavesAccured}}</td>
+           <td>{{members.medicalLeave.leavesAvailed}}</td>
+            <td></td>
+       </tr>
+       <tr  ng-repeat="members in tempdata.member">
+        <td>Previlege Leave</td>
+           <td>{{members.privilegeLeave.openingBalance}}</td>
+           <td>{{members.privilegeLeave.leavesAccured}}</td>
+           <td>{{members.privilegeLeave.leavesAvailed}}</td>
+            <td></td>
+            </tr>
+            
+   </table>
+   
+    <div ng-repeat="leave in tempdata.member">
+  Leave Category: <select align="center"  ng-model="lctgry" >
+       <option value="--select--">Select</option>
+        <option value="annual">{{leave.leaveCategory.firstCtgry}}</option>
+         <option value="monthly">{{leave.leaveCategory.secondCtgry}}</option>
+          <option value="weekly">{{leave.leaveCategory.thirdCtgry}}</option>
+           <option value="once">{{leave.leaveCategory.fourthCtgry}}</option>
+          
+   </select>
+   <br>
+   <br>
+   Leave Subtype: <select align="center"  ng-model="lsub" ng-disabled=true>
+       <option value="--select--">Select</option>
+        <option value="casual">{{leave.leaveType.firstType}}</option>
+         <option value="medical">{{leave.leaveType.secondType}}</option>
+          <option value="previlege">{{leave.leaveType.thirdType}}</option>
+   </select>
+   <br>
+   <br>
+   <lable for="">Date From:</lable>
+   <input type="date" ng-model="dt">
+   <br>
+   <br>
+   <lable for="">No of Leaves:</lable>
+   <input type="text" ng-model="leave.leaveNo" ng-disabled=true>
+   <br>
+   <br>
+    <lable for="">Attach document:</lable>
+     <button value="browse">Browse</button>
+     <br>
+       
+     <div  style="float: right; width: 60%; top: 150px; margin-top:10px;margin-bottom: 0px;">
+      Leave Type: <select align="center"  ng-model="ltype">
+       <option value="--select--">Select</option>
+        <option value="Casaual Leave">Casaual Leave</option>
+         <option value="Medical Leave">Medical Leave</option>
+          <option value="Previlege Leave">Previlege Leave</option>
+   </select>
+   <br>
+   <lable for="">Alternate Contact</lable>
+   <input type="text" ng-model="leave.alternateContact">
+   <br>
+   <lable for="">Date To</lable>
+   <input type="date" ng-model="date">
+   <br>
+   <lable for="">Purpose of Leave</lable>
+   <textarea rows="3" cols="80" ng-model="txtarea"></textarea>
+    </div>
+    </div>
+   </fieldset>
+    <button ng-click="apply()">Apply</button>
+</div>

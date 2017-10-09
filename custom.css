@@ -1,0 +1,15 @@
+section{
+height: 700px;
+}
+#nav>li{
+    display:inline;
+    color: aqua;
+    padding:20px;
+}
+#nav>li>a{
+    text-decoration: underline;
+    cursor: pointer;
+}
+img{
+    width:5%;
+}
