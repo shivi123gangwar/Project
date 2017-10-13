@@ -3,66 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src="libs/angular.min.js"></script>
-    <script src="libs/angular-route.min.js"></script>
-     <link rel="stylesheet" href="css/design.css">
-    <link rel="stylesheet" href="css/custom.css">
+   <script src="libs/angular.min.js"></script>
+   <link rel="stylesheet" href="css/style.css">
     <script src="js/app.js"></script>
-    <script src="js/leavefactory.js"></script>
-    <script src="js/leavecontroller.js"></script>
-    <script src="js/projectcontroller.js"></script>
-    <scr  src="js/leaveDataController.js"></scr>
-    <script src="js/viewFactory.js"></script>
-    <script src="js/viewController.js"></script>
-    <script src="js/route.js"></script>
+    <script src="js/value.js"></script>
+    <script src="js/genderFactory.js"></script>
+    <script src="js/genderController.js"></script>
+</head>
+<body ng-app="gender">
+
+  <div ng-controller="genderCtrl">
+  <div ng-repeat="genderData in genderInfo.genders | filter:{'status':'y'}" >
+  <img ng-src="{{genderData.url}}">
+        </div>                                                 
+      </div>
    
-    </head>
-    <body ng-app="myapp" >
-      <fieldset>
-       <div>
-       <header>
-          <fieldset>
-           <div ng-controller="myctrl">
-               <ul>
-                   <li ng-repeat="image in tempdata.member">
-                   <div align="left" id="span">
-                   <img src="{{image.img}}" style="width:15%">
-                       </div>
-                       <div align="center">
-                   <img src="{{image.imgUrl}}">{{image.welcome}}
-                       </div>
-                   </li>
-               </ul>
-           </div>
-           <ul align="right" id="nav">
-               <li><a href="#/forms">Forms & More</a></li>
-               <li><a href="#/guide">Guide</a></li>
-               <li><a href="#/logout">Logout</a></li>
-           </ul>
-           </fieldset>
-           <br>
-           <fieldset>
-        <ul id="nav">
-           <li><a ng-href="#/">Home</a></li>
-            <li><a ng-href="#/timesheet">Timesheet Management</a></li>
-            <li ><a ng-href="#/project">Project Management</a></li>
-            <li ><a ng-href="#/leave">Leave Management System</a></li>
-            <li><a ng-href="#/resource">Human Resource Management System</a></li>
-            <li><a  ng-href="#/management">Management DashBoard</a></li>
-</ul>
-          </fieldset>
-           </header>
-        </div>
-        
-        <div><ng-view></ng-view>
-            </div>
-       
-    <div>
-	<footer>
-	<hr>
-		<h2>Terms and Conditions</h2>
-	</footer>
-</div>
-</fieldset>
-    </body>
+</body>
 </html>
